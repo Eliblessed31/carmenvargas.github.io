@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Biblioteca Académica | Carmen Vargas</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background: #080d16;
+            color: #f5f7fa;
+        }
+
+        header {
+            border-bottom: 1px solid #273247;
+            padding: 22px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #080d16;
+            position: sticky;
+            top: 0;
+        }
+
+        .marca {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo {
+            width: 55px;
+            height: 55px;
+            border-radius: 15px;
+            background: #e7b635;
+            color: #111827;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 26px;
+            font-weight: bold;
+        }
+
+        .marca h1 {
+            margin: 0;
+            font-size: 22px;
+        }
+
+        .marca p {
+            margin: 4px 0 0;
+            color: #98a4b8;
+            font-size: 13px;
+            letter-spacing: 1px;
+        }
+
+        nav a {
+            color: #d8deea;
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 14px;
+        }
+
+        nav a:hover {
+            color: #e7b635;
+        }
+
+        .hero {
+            padding: 75px 7% 55px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .etiqueta {
+            color: #e7b635;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .hero h2 {
+            font-size: 48px;
+            max-width: 850px;
+            margin: 15px 0;
+        }
+
+        .hero p {
+            color: #a9b4c6;
+            font-size: 19px;
+            line-height: 1.7;
+            max-width: 800px;
+        }
+
+        .buscador {
+            margin-top: 35px;
+        }
+
+        .buscador input {
+            width: 100%;
+            max-width: 700px;
+            padding: 18px;
+            background: #111827;
+            border: 1px solid #334155;
+            border-radius: 12px;
+            color: white;
+            font-size: 16px;
+        }
+
+        .contenedor {
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px 7% 70px;
+        }
+
+        .contenedor h3 {
+            font-size: 26px;
+            margin-bottom: 25px;
+        }
+
+        .categorias {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 35px;
+        }
+
+        .categoria {
+            border: 1px solid #374151;
+            background: #111827;
+            padding: 10px 17px;
+            border-radius: 25px;
+            color: #ccd5e3;
+        }
+
+        .categoria.activa {
+            border-color: #e7b635;
+            color: #e7b635;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .tarjeta {
+            background: #101827;
+            border: 1px solid #253147;
+            border-radius: 17px;
+            padding: 25px;
+        }
+
+        .tarjeta:hover {
+            border-color: #e7b635;
+        }
+
+        .estado {
+            display: inline-block;
+            font-size: 12px;
+            padding: 7px 11px;
+            border-radius: 20px;
+            background: #202b3d;
+            color: #e7b635;
+            margin-bottom: 15px;
+        }
+
+        .tarjeta h4 {
+            margin: 0 0 13px;
+            font-size: 20px;
+            line-height: 1.4;
+        }
+
+        .tarjeta p {
+            color: #9daabe;
+            line-height: 1.6;
+            font-size: 14px;
+        }
+
+        .tags span {
+            display: inline-block;
+            background: #182235;
+            color: #aeb9c9;
+            padding: 6px 9px;
+            margin: 4px 3px 4px 0;
+            border-radius: 7px;
+            font-size: 11px;
+        }
+
+        .botones {
+            margin-top: 20px;
+        }
+
+        .boton {
+            display: inline-block;
+            text-decoration: none;
+            padding: 10px 14px;
+            border-radius: 8px;
+            margin-right: 7px;
+            margin-bottom: 7px;
+            font-size: 13px;
+            background: #e7b635;
+            color: #101010;
+            font-weight: bold;
+        }
+
+        .boton-secundario {
+            background: transparent;
+            color: #e7b635;
+            border: 1px solid #e7b635;
+        }
+
+        footer {
+            text-align: center;
+            border-top: 1px solid #273247;
+            padding: 30px;
+            color: #7f8ca2;
+            font-size: 13px;
+        }
+
+        @media(max-width: 750px) {
+            nav {
+                display: none;
+            }
+
+            .hero h2 {
+                font-size: 35px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+
+    <div class="marca">
+        <div class="logo">CV</div>
+
+        <div>
+            <h1>Master Carmen Vargas</h1>
+            <p>ENFERMERÍA · INVESTIGACIÓN · DOCENCIA</p>
+        </div>
+    </div>
+
+    <nav>
+        <a href="#inicio">Inicio</a>
+        <a href="#publicaciones">Publicaciones</a>
+        <a href="#investigacion">Investigación</a>
+        <a href="#docencia">Docencia</a>
+        <a href="#contacto">Sobre mí</a>
+    </nav>
+
+</header>
+
+
+<section class="hero" id="inicio">
+
+    <div class="etiqueta">
+        BIBLIOTECA ACADÉMICA PERSONAL
+    </div>
+
+    <h2>
+        Enfermería, investigación e innovación educativa
+    </h2>
+
+    <p>
+        Espacio académico destinado a reunir publicaciones científicas,
+        investigaciones, recursos docentes, materiales educativos y
+        proyectos desarrollados por Carmen Vargas.
+    </p>
+
+    <div class="buscador">
+        <input
+            type="text"
+            id="buscar"
+            placeholder="🔎 Buscar publicación, investigación o tema..."
+            onkeyup="buscarPublicaciones()"
+        >
+    </div>
+
+</section>
+
+
+<main class="contenedor" id="publicaciones">
+
+    <h3>Producción académica</h3>
+
+    <div class="categorias">
+        <div class="categoria activa">Todos</div>
+        <div class="categoria">Investigación</div>
+        <div class="categoria">Enfermería</div>
+        <div class="categoria">Farmacología</div>
+        <div class="categoria">Cuidados Críticos</div>
+        <div class="categoria">IA y Educación</div>
+    </div>
+
+
+    <div class="grid" id="listaPublicaciones">
+
+        <article class="tarjeta">
+
+            <span class="estado">
+                EN DESARROLLO
+            </span>
+
+            <h4>
+                Percepción del cuidado humanizado de enfermería
+                en pacientes adultos atendidos en UCI
+            </h4>
+
+            <p>
+                Investigación cualitativa enfocada en la percepción
+                del cuidado humanizado brindado por profesionales
+                de Enfermería en unidades de cuidados intensivos.
+            </p>
+
+            <div class="tags">
+                <span>Enfermería</span>
+                <span>UCI</span>
+                <span>Cuidado humanizado</span>
+                <span>Investigación cualitativa</span>
+            </div>
+
+            <div class="botones">
+                <a class="boton" href="#">Ver proyecto</a>
+                <a class="boton boton-secundario" href="#">Próximamente</a>
+            </div>
+
+        </article>
+
+
+        <article class="tarjeta">
+
+            <span class="estado">
+                SCOPING REVIEW
+            </span>
+
+            <h4>
+                Inteligencia artificial y formación humanística
+                de estudiantes de Enfermería
+            </h4>
+
+            <p>
+                Revisión de alcance dirigida a identificar cómo
+                la inteligencia artificial influye en dimensiones
+                humanísticas de la formación universitaria en Enfermería.
+            </p>
+
+            <div class="tags">
+                <span>Inteligencia Artificial</span>
+                <span>Educación</span>
+                <span>Enfermería</span>
+                <span>PRISMA-ScR</span>
+                <span>JBI</span>
+            </div>
+
+            <div class="botones">
+                <a class="boton" href="#">Ver investigación</a>
+                <a class="boton boton-secundario" href="#">En desarrollo</a>
+            </div>
+
+        </article>
+
+
+        <article class="tarjeta">
+
+            <span class="estado">
+                RECURSO DOCENTE
+            </span>
+
+            <h4>
+                Farmacología para estudiantes de Enfermería
+            </h4>
+
+            <p>
+                Recursos educativos relacionados con farmacocinética,
+                farmacodinamia, farmacología por sistemas y administración
+                segura de medicamentos.
+            </p>
+
+            <div class="tags">
+                <span>Farmacología</span>
+                <span>Farmacocinética</span>
+                <span>Farmacodinamia</span>
+                <span>Enfermería</span>
+            </div>
+
+            <div class="botones">
+                <a class="boton" href="#">Explorar recursos</a>
+            </div>
+
+        </article>
+
+
+        <article class="tarjeta">
+
+            <span class="estado">
+                INVESTIGACIÓN
+            </span>
+
+            <h4>
+                Habilidades blandas en la formación de Enfermería
+            </h4>
+
+            <p>
+                Recursos e instrumentos relacionados con el desarrollo,
+                evaluación y seguimiento de habilidades blandas
+                en estudiantes universitarios.
+            </p>
+
+            <div class="tags">
+                <span>Habilidades blandas</span>
+                <span>Educación</span>
+                <span>Enfermería</span>
+            </div>
+
+            <div class="botones">
+                <a class="boton" href="#">Ver recursos</a>
+            </div>
+
+        </article>
+
+    </div>
+
+</main>
+
+
+<footer id="contacto">
+
+    © 2026 Carmen Vargas · Biblioteca Académica Personal
+
+</footer>
+
+
+<script>
+
+function buscarPublicaciones() {
+
+    const texto =
+        document.getElementById("buscar").value.toLowerCase();
+
+    const tarjetas =
+        document.querySelectorAll(".tarjeta");
+
+    tarjetas.forEach(function(tarjeta) {
+
+        const contenido =
+            tarjeta.innerText.toLowerCase();
+
+        if (contenido.includes(texto)) {
+            tarjeta.style.display = "block";
+        } else {
+            tarjeta.style.display = "none";
+        }
+
+    });
+
+}
+
+</script>
+
+</body>
+</html>
